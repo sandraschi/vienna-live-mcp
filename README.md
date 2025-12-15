@@ -63,8 +63,15 @@ The server supports both MCP transports:
 ### Prerequisites
 
 - Python 3.11+
-- Access to Vienna Life Assistant PostgreSQL database
-- External service APIs (Wiener Linien, weather, etc.)
+- **Database**: PostgreSQL (can be shared with Vienna Life Assistant or separate)
+- **Optional External APIs**:
+  - Wiener Linien API (Vienna public transport)
+  - OpenWeatherMap API (weather data)
+  - Currency exchange APIs
+  - ÖBB API (Austrian railways)
+  - Plex, Calibre, Immich APIs (media services)
+
+**Note**: The server works with mock data by default. Real API integrations are optional and require API keys.
 
 ### Installation
 
