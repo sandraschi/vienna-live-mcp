@@ -1,0 +1,174 @@
+{
+  "name": "vienna-live-mcp",
+  "version": "0.1.0",
+  "description": "Comprehensive MCP server providing programmatic access to Vienna Life Assistant functionality through 60+ tools organized in 5 portmanteaus",
+  "author": "Sandra Schi",
+  "license": "MIT",
+  "homepage": "https://github.com/sandraschi/vienna-live-mcp",
+  "repository": "https://github.com/sandraschi/vienna-live-mcp",
+  "keywords": [
+    "productivity",
+    "personal-management",
+    "shopping",
+    "travel",
+    "expenses",
+    "media",
+    "planning",
+    "life-management",
+    "vienna",
+    "mcp-server"
+  ],
+  "mcp": {
+    "version": "1.0",
+    "server": {
+      "command": "python",
+      "args": ["-m", "vienna_live_mcp.server"],
+      "env": {
+        "PYTHONPATH": "src"
+      }
+    },
+    "capabilities": {
+      "tools": {
+        "listChanged": true
+      },
+      "resources": {
+        "subscribe": false,
+        "listChanged": false
+      }
+    }
+  },
+  "portmanteaus": {
+    "shopping_manager": {
+      "tools": 12,
+      "description": "Store offers, shopping lists, budget tracking",
+      "categories": ["offers", "lists", "budget", "receipts"]
+    },
+    "travel_manager": {
+      "tools": 15,
+      "description": "Transport schedules, trip planning, weather integration",
+      "categories": ["transport", "planning", "weather", "booking"]
+    },
+    "expenses_manager": {
+      "tools": 14,
+      "description": "Financial tracking, budget analysis, spending insights",
+      "categories": ["tracking", "analysis", "budget", "export"]
+    },
+    "media_manager": {
+      "tools": 16,
+      "description": "Unified media access across Plex, Calibre, Immich",
+      "categories": ["plex", "calibre", "immich", "cross-media"]
+    },
+    "planning_manager": {
+      "tools": 13,
+      "description": "Personal planning and productivity management",
+      "categories": ["todos", "calendar", "goals", "habits"]
+    }
+  },
+  "tools": {
+    "total": 60,
+    "categories": [
+      "get_store_offers", "compare_prices", "find_stores_nearby",
+      "shopping_list_create", "shopping_list_add_item", "get_shopping_recommendations",
+      "budget_check_item", "find_coupons", "analyze_receipt", "get_shopping_history",
+      "get_next_tram", "get_transport_schedule", "get_transport_disruptions",
+      "plan_day_trip", "get_travel_info", "get_weather_for_travel",
+      "get_train_schedule", "get_bus_schedule", "get_flight_info",
+      "get_currency_exchange", "get_visa_requirements", "calculate_travel_cost",
+      "get_sleeper_train_schedule", "get_traffic_info", "book_transport_ticket",
+      "add_expense", "update_expense", "delete_expense",
+      "get_expenses_by_category", "get_expenses_by_date_range", "get_top_spending_categories",
+      "analyze_spending_patterns", "set_budget", "get_budget_status",
+      "predict_monthly_expense", "compare_expenses_period", "get_savings_recommendations",
+      "export_expenses", "import_expenses", "search_plex_library",
+      "get_currently_watching", "get_recently_added", "get_plex_recommendations",
+      "search_calibre_library", "get_reading_progress", "get_book_recommendations",
+      "add_book_to_reading_list", "search_immich_photos", "get_recent_photos",
+      "get_today_in_history", "create_media_playlist", "get_media_stats",
+      "find_similar_media", "analyze_media_preferences", "get_media_suggestions",
+      "create_todo", "update_todo", "get_todos_by_category",
+      "complete_todo", "get_calendar_events", "schedule_meeting",
+      "check_schedule_conflicts", "get_productivity_stats", "set_goal",
+      "get_goals_progress", "create_habit", "log_habit_completion",
+      "get_habit_streak", "get_motivational_quote", "plan_week"
+    ]
+  },
+  "dependencies": {
+    "python": ">=3.11",
+    "fastmcp": ">=2.13.0,<2.14.0",
+    "httpx": ">=0.28.1,<0.29.0",
+    "pydantic": ">=2.5.3,<3.0.0",
+    "sqlalchemy": ">=2.0.25,<3.0.0",
+    "psycopg2-binary": ">=2.9.9",
+    "asyncpg": ">=0.29.0"
+  },
+  "optional_dependencies": {
+    "dev": [
+      "pytest>=7.4.4",
+      "pytest-asyncio>=0.23.3",
+      "pytest-cov>=4.1.0",
+      "black>=24.1.1",
+      "ruff>=0.1.15",
+      "pre-commit>=3.6.0"
+    ]
+  },
+  "transports": {
+    "stdio": {
+      "description": "Standard MCP transport for client integration",
+      "command": "python -m vienna_live_mcp.server",
+      "supported": true
+    },
+    "http": {
+      "description": "HTTP transport for web app integration",
+      "command": "python -m vienna_live_mcp.server --transport http --port 8000",
+      "supported": true,
+      "default_port": 8000
+    }
+  },
+  "configuration": {
+    "required": [
+      "DATABASE_URL"
+    ],
+    "optional": [
+      "REDIS_URL",
+      "PLEX_TOKEN",
+      "CALIBRE_USERNAME",
+      "IMMICH_API_KEY",
+      "WIENER_LINIEN_API_KEY",
+      "OPENWEATHER_API_KEY"
+    ],
+    "environment_file": ".env"
+  },
+  "assets": {
+    "icon": "assets/icon.png",
+    "screenshots": [
+      "assets/screenshot_01.png",
+      "assets/screenshot_02.png"
+    ],
+    "documentation": "README.md"
+  },
+  "metadata": {
+    "tags": [
+      "productivity",
+      "personal-management",
+      "shopping",
+      "travel",
+      "expenses",
+      "media",
+      "planning",
+      "life-management",
+      "vienna",
+      "mcp-server",
+      "portmanteau-pattern"
+    ],
+    "categories": [
+      "Productivity",
+      "Personal Finance",
+      "Media Management",
+      "Travel Planning",
+      "Life Management"
+    ],
+    "framework": "FastMCP 2.13",
+    "pattern": "Portmanteau",
+    "architecture": "Microservices"
+  }
+}
