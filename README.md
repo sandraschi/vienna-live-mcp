@@ -9,7 +9,7 @@ A comprehensive MCP server providing programmatic access to Vienna Life Assistan
 
 ## 🎯 Overview
 
-The **vienna-live-mcp** server transforms Vienna Life Assistant into a fully programmable personal assistant. It implements the **Portmanteau Pattern** to organize 60+ tools across 5 logical categories, providing clean, discoverable APIs for:
+The **vienna-live-mcp** server transforms Vienna Life Assistant into a fully programmable personal assistant. It implements the **Portmanteau Pattern** to organize 63 tools across 5 logical categories, providing clean, discoverable APIs for:
 
 - **Shopping Management** - Store offers, shopping lists, budget tracking
 - **Travel Planning** - Transport schedules, trip planning, weather integration
@@ -106,7 +106,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 
 ## 📚 Tool Categories
 
-### 🛍️ Shopping Manager (12 Tools)
+### 🛍️ Shopping Manager (11 Tools)
 
 | Tool | Description |
 |------|-------------|
@@ -141,7 +141,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `get_traffic_info` | Real-time traffic information |
 | `book_transport_ticket` | Transport ticket booking (API ready) |
 
-### 💰 Expenses Manager (14 Tools)
+### 💰 Expenses Manager (12 Tools)
 
 | Tool | Description |
 |------|-------------|
@@ -160,7 +160,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `export_expenses` | Export in CSV/JSON/PDF formats |
 | `import_expenses` | Import from external sources |
 
-### 🎬 Media Manager (16 Tools)
+### 🎬 Media Manager (10 Tools)
 
 | Tool | Description |
 |------|-------------|
@@ -178,7 +178,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `analyze_media_preferences` | Media preference analysis |
 | `get_media_suggestions` | AI-powered media suggestions |
 
-### 📅 Planning Manager (13 Tools)
+### 📅 Planning Manager (15 Tools)
 
 | Tool | Description |
 |------|-------------|

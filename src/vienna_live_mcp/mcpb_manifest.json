@@ -1,7 +1,7 @@
 {
   "name": "vienna-live-mcp",
   "version": "0.1.0",
-  "description": "Comprehensive MCP server providing programmatic access to Vienna Life Assistant functionality through 60+ tools organized in 5 portmanteaus",
+  "description": "Comprehensive MCP server providing programmatic access to Vienna Life Assistant functionality through 63 tools organized in 5 portmanteaus",
   "author": "Sandra Schi",
   "license": "MIT",
   "homepage": "https://github.com/sandraschi/vienna-live-mcp",
@@ -39,7 +39,7 @@
   },
   "portmanteaus": {
     "shopping_manager": {
-      "tools": 12,
+      "tools": 11,
       "description": "Store offers, shopping lists, budget tracking",
       "categories": ["offers", "lists", "budget", "receipts"]
     },
@@ -49,23 +49,23 @@
       "categories": ["transport", "planning", "weather", "booking"]
     },
     "expenses_manager": {
-      "tools": 14,
+      "tools": 12,
       "description": "Financial tracking, budget analysis, spending insights",
       "categories": ["tracking", "analysis", "budget", "export"]
     },
     "media_manager": {
-      "tools": 16,
+      "tools": 10,
       "description": "Unified media access across Plex, Calibre, Immich",
       "categories": ["plex", "calibre", "immich", "cross-media"]
     },
     "planning_manager": {
-      "tools": 13,
+      "tools": 15,
       "description": "Personal planning and productivity management",
       "categories": ["todos", "calendar", "goals", "habits"]
     }
   },
   "tools": {
-    "total": 60,
+    "total": 63,
     "categories": [
       "get_store_offers", "compare_prices", "find_stores_nearby",
       "shopping_list_create", "shopping_list_add_item", "get_shopping_recommendations",

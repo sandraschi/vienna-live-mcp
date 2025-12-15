@@ -134,7 +134,7 @@ async def get_server_status() -> Dict[str, Any]:
             "media_manager",
             "planning_manager"
         ],
-        "tools_count": 60,  # Total tools across all portmanteaus
+        "tools_count": 63,  # Total tools across all portmanteaus
         "last_updated": "2025-12-15"
     }
 
@@ -152,7 +152,7 @@ async def get_portmanteau_info(portmanteau: str) -> Dict[str, Any]:
     portmanteau_info = {
         "shopping_manager": {
             "description": "Comprehensive shopping management with offers, lists, and budget tracking",
-            "tools_count": 12,
+            "tools_count": 11,
             "categories": ["offers", "lists", "budget", "receipts"],
             "tools": [
                 "get_store_offers", "compare_prices", "find_stores_nearby",
@@ -172,7 +172,7 @@ async def get_portmanteau_info(portmanteau: str) -> Dict[str, Any]:
         },
         "expenses_manager": {
             "description": "Advanced expense tracking, analysis, and budget management",
-            "tools_count": 14,
+            "tools_count": 12,
             "categories": ["tracking", "analysis", "budget", "export"],
             "tools": [
                 "add_expense", "get_expenses_by_category", "analyze_spending_patterns",
@@ -182,7 +182,7 @@ async def get_portmanteau_info(portmanteau: str) -> Dict[str, Any]:
         },
         "media_manager": {
             "description": "Unified media management across Plex, Calibre, and Immich",
-            "tools_count": 16,
+            "tools_count": 10,
             "categories": ["plex", "calibre", "immich", "cross-media"],
             "tools": [
                 "search_plex_library", "get_currently_watching", "search_calibre_library",
@@ -192,7 +192,7 @@ async def get_portmanteau_info(portmanteau: str) -> Dict[str, Any]:
         },
         "planning_manager": {
             "description": "Personal planning and productivity management",
-            "tools_count": 13,
+            "tools_count": 15,
             "categories": ["todos", "calendar", "goals", "habits"],
             "tools": [
                 "create_todo", "get_todos_by_category", "schedule_meeting",
