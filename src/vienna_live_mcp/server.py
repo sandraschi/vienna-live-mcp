@@ -72,11 +72,13 @@ async def lifespan(server: FastMCP):
 
 async def initialize_database():
     """Initialize database connections and validate schema."""
-    # TODO: Implement database initialization
-    # - Connect to Vienna Life Assistant PostgreSQL
-    # - Validate schema compatibility
-    # - Setup connection pooling
-    pass
+    try:
+        from .models import init_db
+        init_db()
+        logger.info("Database tables initialized successfully")
+    except Exception as e:
+        logger.error(f"Failed to initialize database: {e}")
+        raise
 
 async def initialize_clients():
     """Initialize external service clients."""

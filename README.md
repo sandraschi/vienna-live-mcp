@@ -63,7 +63,7 @@ The server supports both MCP transports:
 ### Prerequisites
 
 - Python 3.11+
-- **Database**: PostgreSQL (can be shared with Vienna Life Assistant or separate)
+- **Database**: SQLite (default, no setup required) or PostgreSQL (optional, for production)
 - **Optional External APIs**:
   - Wiener Linien API (Vienna public transport)
   - OpenWeatherMap API (weather data)

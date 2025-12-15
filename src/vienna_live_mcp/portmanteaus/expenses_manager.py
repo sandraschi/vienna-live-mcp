@@ -14,12 +14,11 @@ This portmanteau provides comprehensive financial management tools.
 import logging
 from typing import Dict, List, Any, Optional
 from datetime import datetime, timedelta
+from sqlalchemy.orm import Session
+
+from ..models import get_db, Expense, Budget
 
 logger = logging.getLogger(__name__)
-
-# Mock data for development
-MOCK_EXPENSES = []
-MOCK_BUDGETS = {}
 
 def register_expenses_tools(app):
     """Register all expenses manager tools with the MCP server."""
@@ -49,18 +48,31 @@ def register_expenses_tools(app):
         """
         try:
             expense_date = date or datetime.now().strftime("%Y-%m-%d")
-            expense = {
-                "id": f"exp_{len(MOCK_EXPENSES) + 1}",
-                "amount": amount,
-                "description": description,
-                "category": category,
-                "date": expense_date,
-                "store": store,
-                "payment_method": payment_method,
-                "created_at": datetime.now().isoformat()
-            }
 
-            MOCK_EXPENSES.append(expense)
+            # Add to database
+            db = next(get_db())
+            db_expense = Expense(
+                amount=amount,
+                description=description,
+                category=category,
+                date=expense_date,
+                store=store,
+                payment_method=payment_method
+            )
+            db.add(db_expense)
+            db.commit()
+            db.refresh(db_expense)
+
+            expense = {
+                "id": db_expense.id,
+                "amount": db_expense.amount,
+                "description": db_expense.description,
+                "category": db_expense.category,
+                "date": db_expense.date,
+                "store": db_expense.store,
+                "payment_method": db_expense.payment_method,
+                "created_at": db_expense.created_at.isoformat() if db_expense.created_at else None
+            }
 
             logger.info(f"Added expense: €{amount} for {description} in category {category}")
             return {
