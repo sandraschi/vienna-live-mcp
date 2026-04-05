@@ -1,0 +1,43 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": ["sandraschi"],
+  "name": "vienna-live-mcp",
+  "description": "Comprehensive Vienna living assistant. Travel planning, expense management, shopping, media organization, and local city services integration.",
+  "type": "mcp_server",
+  "status": "beta",
+  "framework": "FastMCP 2.13+",
+  "tools": 64,
+  "transport": ["stdio"],
+  "keywords": [
+    "vienna",
+    "personal-assistant",
+    "travel-planning",
+    "expense-management",
+    "shopping",
+    "media-organization",
+    "local-services",
+    "fastmcp"
+  ],
+  "features": {
+    "travel_management": {
+      "enabled": true,
+      "capabilities": ["booking", "itineraries", "transport", "accommodation"]
+    },
+    "expense_tracking": {
+      "enabled": true,
+      "features": ["budgeting", "receipts", "categorization", "analytics"]
+    },
+    "shopping_assistance": {
+      "enabled": true,
+      "capabilities": ["product-research", "price-comparison", "local-stores"]
+    },
+    "media_organization": {
+      "enabled": true,
+      "features": ["library-management", "recommendations", "streaming-services"]
+    },
+    "planning_tools": {
+      "enabled": true,
+      "capabilities": ["scheduling", "reminders", "task-management", "calendar-integration"]
+    }
+  }
+}

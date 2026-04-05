@@ -7,7 +7,7 @@
 
 A comprehensive MCP server providing programmatic access to Vienna Life Assistant functionality through consolidated portmanteau tools.
 
-## 🎯 Overview
+##  Overview
 
 The **vienna-live-mcp** server transforms Vienna Life Assistant into a fully programmable personal assistant. It implements the **Portmanteau Pattern** to organize 63 tools across 5 logical categories, providing clean, discoverable APIs for:
 
@@ -17,7 +17,7 @@ The **vienna-live-mcp** server transforms Vienna Life Assistant into a fully pro
 - **Media Management** - Unified access to Plex, Calibre, and Immich libraries
 - **Personal Planning** - Todo management, calendar, goals, and productivity tools
 
-## 🏗️ Architecture
+##  Architecture
 
 ### Portmanteau Pattern
 
@@ -58,7 +58,7 @@ The server supports both MCP transports:
 - **STDIO Transport**: For integration with MCP clients (Cursor, Claude Desktop, etc.)
 - **HTTP Transport**: For direct web API access and web app integration
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -68,30 +68,33 @@ The server supports both MCP transports:
   - Wiener Linien API (Vienna public transport)
   - OpenWeatherMap API (weather data)
   - Currency exchange APIs
-  - ÖBB API (Austrian railways)
+  - BB API (Austrian railways)
   - Plex, Calibre, Immich APIs (media services)
 
 **Note**: The server works with mock data by default. Real API integrations are optional and require API keys.
 
-### Installation
+##  Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/sandraschi/vienna-live-mcp.git
-   cd vienna-live-mcp
-   ```
+### Prerequisites
+- [uv](https://docs.astral.sh/uv/) installed (RECOMMENDED)
+- Python 3.12+
 
-2. **Install dependencies:**
-   ```bash
-   pip install -e .
-   ```
+###  Quick Start
+Run immediately via `uvx`:
+```bash
+uvx vienna-live-mcp
+```
 
-3. **Configure environment:**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your database and API credentials
-   ```
-
+###  Claude Desktop Integration
+Add to your `claude_desktop_config.json`:
+```json
+"mcpServers": {
+  "vienna-live-mcp": {
+    "command": "uv",
+    "args": ["--directory", "D:/Dev/repos/vienna-live-mcp", "run", "vienna-live-mcp"]
+  }
+}
+```
 ### Running the Server
 
 **STDIO Mode (MCP Client Integration):**
@@ -104,9 +107,9 @@ python -m vienna_live_mcp.server
 python -m vienna_live_mcp.server --transport http --port 8000
 ```
 
-## 📚 Tool Categories
+##  Tool Categories
 
-### 🛍️ Shopping Manager (11 Tools)
+###  Shopping Manager (11 Tools)
 
 | Tool | Description |
 |------|-------------|
@@ -121,7 +124,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `analyze_receipt` | OCR and categorize receipt items |
 | `get_shopping_history` | Historical shopping data and patterns |
 
-### 🚊 Travel Manager (15 Tools)
+###  Travel Manager (15 Tools)
 
 | Tool | Description |
 |------|-------------|
@@ -131,7 +134,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `plan_day_trip` | Complete day trip itineraries |
 | `get_travel_info` | Comprehensive city travel information |
 | `get_weather_for_travel` | Weather forecasts optimized for travel |
-| `get_train_schedule` | ÖBB train schedules |
+| `get_train_schedule` | BB train schedules |
 | `get_bus_schedule` | Long-distance bus schedules |
 | `get_flight_info` | Flight information (ready for API integration) |
 | `get_currency_exchange` | Current exchange rates |
@@ -141,7 +144,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `get_traffic_info` | Real-time traffic information |
 | `book_transport_ticket` | Transport ticket booking (API ready) |
 
-### 💰 Expenses Manager (12 Tools)
+###  Expenses Manager (12 Tools)
 
 | Tool | Description |
 |------|-------------|
@@ -160,7 +163,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `export_expenses` | Export in CSV/JSON/PDF formats |
 | `import_expenses` | Import from external sources |
 
-### 🎬 Media Manager (10 Tools)
+###  Media Manager (10 Tools)
 
 | Tool | Description |
 |------|-------------|
@@ -178,7 +181,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `analyze_media_preferences` | Media preference analysis |
 | `get_media_suggestions` | AI-powered media suggestions |
 
-### 📅 Planning Manager (15 Tools)
+###  Planning Manager (15 Tools)
 
 | Tool | Description |
 |------|-------------|
@@ -198,7 +201,7 @@ python -m vienna_live_mcp.server --transport http --port 8000
 | `get_motivational_quote` | Motivational quotes by category |
 | `plan_week` | Generate weekly planning suggestions |
 
-## 🔧 Configuration
+##  Configuration
 
 ### Environment Variables
 
@@ -234,7 +237,7 @@ The server integrates with Vienna Life Assistant's ecosystem:
 - **Weather APIs**: Travel planning support
 - **Currency APIs**: Travel cost calculations
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Run all tests
@@ -248,7 +251,7 @@ pytest tests/test_shopping_manager.py
 pytest tests/test_travel_manager.py
 ```
 
-## 📦 MCPB Packaging
+##  MCPB Packaging
 
 The server supports MCPB (MCP Binary) packaging for easy distribution:
 
@@ -260,7 +263,7 @@ mcpb build
 mcpb install vienna-live-mcp.mcpb
 ```
 
-## 🤝 Integration
+##  Integration
 
 ### MCP Client Integration
 
@@ -308,7 +311,7 @@ const recommendations = await client.callTool('get_shopping_recommendations', {
 });
 ```
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - **Real API Integration**: Complete integration with all external services
 - **Machine Learning**: Enhanced AI recommendations and predictions
@@ -317,24 +320,24 @@ const recommendations = await client.callTool('get_shopping_recommendations', {
 - **Mobile SDK**: Native mobile app integration
 - **Plugin System**: Extensible tool architecture
 
-## 📄 License
+##  License
 
 MIT License - see [LICENSE](LICENSE) for details.
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Add tests for new functionality
 4. Submit a pull request
 
-## 📞 Support
+##  Support
 
 - **Issues**: [GitHub Issues](https://github.com/sandraschi/vienna-live-mcp/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/sandraschi/vienna-live-mcp/discussions)
 - **Documentation**: [MCP Central Docs](https://github.com/sandraschi/mcp-central-docs)
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built with [FastMCP](https://github.com/sugarforever/FastMCP)
 - Part of the [Vienna Life Assistant](https://github.com/sandraschi/vienna-life-assistant) ecosystem
@@ -342,4 +345,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Made with ❤️ in Vienna** 🇦🇹
+**Made with  in Vienna** 
