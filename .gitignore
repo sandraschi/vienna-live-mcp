@@ -156,3 +156,5 @@ Thumbs.db
 # MCP specific
 *.mcpb
 mcp-manifest.json
+
+_dashboard/
