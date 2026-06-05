@@ -1,20 +1,14 @@
-# vienna-live-mcp — Agent Guide
+# vienna-live-mcp — Agent Guide (DEPRECATED)
+
+> **Use `vienna-life-assistant` (ViLife) instead.** See [DEPRECATED.md](DEPRECATED.md).
 
 ## Overview
-MCP server providing comprehensive access to Vienna Life Assistant functionality
 
-## Entry Points
-- `uv run vienna-live-mcp` → `vienna_live_mcp.server:main`
-
-## Standards
-- FastMCP 3.2+ portmanteau tool pattern — tools use `operation` enum param
-- Responses: structured dicts with `success`, `message`, domain-specific fields
-- Dual transport: stdio (Claude Desktop) + HTTP (`MCP_TRANSPORT=http`)
-- See [mcp-central-docs](https://github.com/sandraschi/mcp-central-docs) for fleet-wide coding standards
+This repo is quarantined. MCP surface: `http://127.0.0.1:10922/mcp` tool `vienna_life` on vienna-life-assistant.
 
 ## Key Files
-- `README.md` — full documentation
-- `pyproject.toml` — build config and entry points
-- `CLAUDE.md` — Claude Code context (if present)
 
-Install docs: follow mcp-central-docs/standards/AGENT_INSTALL_REFERENCE.md
+- `DEPRECATED.md` — replacement paths
+- `README.md` — historical documentation
+
+Install docs: follow `mcp-central-docs/standards/AGENT_INSTALL_REFERENCE.md`

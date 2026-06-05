@@ -1,5 +1,9 @@
 # Vienna Live MCP Server
 
+> **DEPRECATED (2026-06-05)** — Quarantined. Use **[vienna-life-assistant](https://github.com/sandraschi/vienna-life-assistant)** (ViLife) instead. See [DEPRECATED.md](DEPRECATED.md).
+
+---
+
 <p align="center">
   <a href="https://github.com/casey/just"><img src="https://img.shields.io/badge/just-ready_to_go-7c5cfc?style=flat-square&logo=just&logoColor=white" alt="Just"></a>
   <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
