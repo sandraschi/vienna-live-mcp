@@ -14,6 +14,8 @@ if (-not (Test-Path -LiteralPath $FleetStartPath)) {
 . $FleetStartPath
 Stop-FleetPortSquatters -Ports @(10988, 10922, 10989, 10990) -Label "vienna-live-mcp"
 
+if (-not (Assert-FleetPortsAvailable -Ports @(10988, 10922, 10989, 10990) -Label "vienna-live-mcp")) { exit 1 }
+
 $ViLifeStart = 'D:\Dev\repos\vienna-life-assistant\web_sota\start.ps1'
 
 Write-Host ""
@@ -34,4 +36,5 @@ if (-not (Test-Path $ViLifeStart)) {
 
 & $ViLifeStart @PSBoundParameters
 exit $LASTEXITCODE
+
 
