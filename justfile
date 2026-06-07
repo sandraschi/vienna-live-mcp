@@ -1,10 +1,10 @@
-set windows-shell := ["pwsh.exe", "-NoLogo", "-Command"]
+﻿set windows-shell := ["pwsh.exe", "-NoLogo", "-Command"]
 
 # ── Dashboard ─────────────────────────────────────────────────────────────────
 
 # Open the interactive recipe dashboard in the browser
 default:
-    @pwsh.exe -NoProfile -ExecutionPolicy Bypass -File ../mcp-central-docs/scripts/just-dashboard.ps1 -Path .
+    @just --list
 
 # ── Quality ───────────────────────────────────────────────────────────────────
 
@@ -29,16 +29,16 @@ audit-deps:
 
 # ── Vienna Live Specific ───────────────────────────────────────────────────────
 
-# Run the Vienna Live MCP server
+# DEPRECATED — forward to ViLife (vienna-life-assistant)
 run:
-    uv run vienna-live-mcp
+    pwsh -NoProfile -File web_sota/start.ps1 -Headless
 
-# Start the web interface
+# DEPRECATED — forward to ViLife web_sota
 web-dev:
-    Set-Location 'web_sota'
-    npm run dev
+    pwsh -NoProfile -File web_sota/start.ps1
 
 # Clean build artifacts
 clean:
     @Get-ChildItem -Recurse -Filter "__pycache__" | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
     @Write-Host "Cleaned."
+
